@@ -1,0 +1,6 @@
+/node_modules
+/taskinfo
+/frontend/node_modules
+/frontend/dist
+/LIXEIRA
+.env
