@@ -6,9 +6,9 @@
             <div class="col-lg-8 col-12">
                 <div class="jumbotron bg-white">
 
-                <h1>Api Rest - NodeJs</h1>
+                <h1>Login Unity</h1>
                 <hr class="my-3">
-                <h3>Stack: Vue, Bootstrap, Express, Postgres</h3>
+                <h3>Stack: Unity, Vue, Bootstrap, Express, Postgres</h3>
                 <p class="lead">
                  Host: Heroku | Database: ElephantSQL
                 </p>
@@ -16,8 +16,10 @@
                 <h3>Instalação</h3>
                 <hr class="my-1">
                 <br>     
+                <h5>É necessário baixar os arquivos da pasta Unity, instalar e rodar o projeto de forma local</h5>     
+                <br>     
                 <h5>Código fonte:</h5>     
-                <code class="code" v-pre>git clone https://github.com/izichtl/crudNodejsTeste.git</code>   
+                <code class="code" v-pre>git clone https://github.com/izichtl/ApiUnityNodejs.git</code>   
                 <br>   
                 <br>      
                 <h5>Instale as dependências:</h5>  
@@ -54,7 +56,11 @@
                 <br>
                 <h5>GET  /user <small class="text-muted"> Retorna todos os usuários.</small></h5>     
                 <br>
-                <h5>POST  /user <small class="text-muted"> Cadastra usuário.</small></h5>     
+                <h5>POST  /user <small class="text-muted"> Cadastra usuário.</small></h5> 
+                <br>
+                <h5>POST  /login <small class="text-muted"> Retorna usuários em padrão string.</small></h5>     
+                <br>
+                <h5>POST  /login/:email/:senha <small class="text-muted"> Efetua o login do usário</small></h5>     
                 <br>
                 <h5>PUT  /user/:user_id <small class="text-muted"> Atualiza usuário</small></h5>     
                 <br>
@@ -64,10 +70,12 @@
                 <hr class="my-1">
                 <h6>user_name<small class="text-muted"> Deve conter apenas letras</small></h6>     
                 <h6>user_email<small class="text-muted"> Deve ser um padrão válido de email</small></h6>     
+                <h6>user_email<small class="text-muted"> Alphanumérico</small></h6>     
                 <pre>
                   <code v-pre>{</code>
                   <code v-pre>  "user_name": "Nome do Usuário",</code>
                   <code v-pre>  "user_email": "Email do Usuário"</code>
+                  <code v-pre>  "user_pass": "Senha de acesso"</code>
                   <code v-pre>}</code>
                 </pre>
                 <br>

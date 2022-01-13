@@ -6,7 +6,7 @@
             <div class="col-lg-8  col-12">
               <nav class=" navbar navbar-expand-lg navbar-expand-md navbar-expand-sm navbar-light bg-dark">
                 <div class="container-fluid">
-                <a class="navbar-brand text-light" href="https://www.izichtl.com/" target="_blank">NODEJS CRUD</a>
+                <a class="navbar-brand text-light" href="https://www.izichtl.com/" target="_blank">BETA</a>
                   <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
                   </button>

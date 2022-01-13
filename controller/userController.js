@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /*
 *Autor:     Ivan Zichtl - 23/09/2012
 *Objetivo:  Realiza a validação dos parametros da request
@@ -7,25 +8,64 @@
 const {postgresDB} = require('../model/postgres');
 const ApiError = require('../error/apiError');
 const {regexEmailA, regexEmailB, regexName} = require('../helpers/regex');
+const { response } = require('express');
 
 
 class userController {
     //envia requisicao de busca ao model
-    get(requisicao, resposta, next){
+    async getLogin(requisicao, resposta, next){
         try{
             const postgres = new postgresDB();
-            let response = postgres.getUsers(requisicao, resposta);
+            let response = await postgres.getAllUsers(requisicao, resposta);
             return response;
         }
         catch(error){
             resposta.status(503).send(error);
         }
     }
+
+    async get(requisicao, resposta, next){
+        try{
+            
+            const postgres = new postgresDB();
+            let response = await postgres.getUsers(requisicao, resposta);
+            return response;
+        }
+        catch(error){
+            resposta.status(503).send(error);
+        }
+    }
+
+    // login(requisicao, resposta, next){
+    //     console.log(requisicao.params);
+    //     try{
+    //         const postgres = new postgresDB();
+    //         let response = postgres.getUsers(requisicao, resposta);
+    //         return response;
+    //     }
+    //     catch(error){
+    //         resposta.status(503).send(error);
+    //     }
+    //     // return resposta.send('1');
+    // }
+
+    login(requisicao, resposta, next){
+        // console.log(requisicao.params);
+        try{
+            const postgres = new postgresDB();
+            let response = postgres.loginUser(requisicao, resposta, next);
+            return response;
+        }
+        catch(error){
+            resposta.status(503).send(error);
+        }
+        // return resposta.send('1');
+    }
     
     //valida campos e envia requisicao de cadastro ao model
     post(requisicao, resposta, next){
-        const {user_name, user_email } = requisicao.body;
-        
+        const {user_name, user_email, user_pass } = requisicao.body;
+        console.log(requisicao.body);
         //name only letters validation
         if (!regexName.test(user_name)){
             next(ApiError.badRequest({

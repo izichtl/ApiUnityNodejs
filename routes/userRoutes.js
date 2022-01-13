@@ -13,6 +13,10 @@ module.exports = function(app) {
     //rota cadastra usuário
     app.post('/user', userController.post)
 
+    //rota login usuário
+    app.get('/login', userController.getLogin)
+    app.get('/login/:email/:senha', userController.login)
+
     //rota atualiza usuário
     app.put('/user/:user_id', userController.put);
 

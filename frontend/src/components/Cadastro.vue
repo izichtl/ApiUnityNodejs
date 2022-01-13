@@ -5,7 +5,7 @@
             <div class="col-lg-8 col-12">
 
                 <div class="jumbotron bg-white">
-                    <h1 class="display-6 text-black">Cadastro de Usuário</h1>
+                    <h1 class="display-6 text-black">Cadastro usuário Beta</h1>
                     <hr class="my-3">
                     <form action="." @submit.prevent="cadastrar" method="post">
                       <div class="form-group">
@@ -16,6 +16,10 @@
                         <div class="mb-3">
                           <label for="userEmail" class="form-label">Email</label>
                           <input type="email" class="form-control" id="userEmail" placeholder="seuemail@example.com" v-model="user.user_email" required>
+                        </div>
+                        <div class="mb-3">
+                          <label for="userEmail" class="form-label">Senha</label>
+                          <input type="password" class="form-control" id="userEmail" placeholder="Sua senha" v-model="user.user_pass" required>
                         </div>
                       </div>  
                       <button type="submit" class="btn btn-info">Cadastrar / Atualizar</button>
@@ -29,6 +33,7 @@
                         <th scope="col">Id</th>
                         <th scope="col">Nome</th>
                         <th scope="col">Email</th>
+                        <th scope="col">Pass</th>
                         <th scope="col">Update</th>
                         <th scope="col">Delete</th>
                       </tr>
@@ -38,6 +43,7 @@
                         <th scope="row">{{user.user_id}}</th>
                         <td>{{user.user_name}}</td>
                         <td class="text-break">{{user.user_email}}</td>
+                        <td class="text-break">{{user.user_pass}}</td>
                         <td><button @click="editar(user)" class="btn-sm btn-warning"><font-awesome-icon :icon="['fas', 'wrench']" /></button></td>
                         <td><button @click="deletar(user)" class="btn-sm btn-danger"><font-awesome-icon :icon="['fas', 'trash']" /></button></td>
                       </tr>
@@ -61,7 +67,8 @@ export default {
       user: {
         user_id: '',
         user_name: '',
-        user_email: ''
+        user_email: '',
+        user_pass: ''
       }
     }
   },
